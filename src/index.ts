@@ -1,9 +1,9 @@
-import zmq, { Publisher } from 'zeromq';
-import mdns from 'mdns';
-const ad = mdns.createAdvertisement(mdns.tcp('neoxa_pub'), 7878);
+import * as zmq from 'zeromq';
+import mdns = require("mdns");
+const ad = mdns.createAdvertisement(mdns.tcp('neoxa-pub'), 7878);
 
 (async () => {
-    const sock: Publisher = new zmq.Publisher
+    const sock: zmq.Publisher = new zmq.Publisher
 
     await sock.bind("tcp://0.0.0.0:7878")
 
